@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import MaterialShowcase from './components/MaterialShowcase';
@@ -8,25 +8,11 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(() => {
-    // Check if user prefers dark mode
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
-
   useEffect(() => {
-    // Apply dark mode class to document
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
-
-  useEffect(() => {
-    // Smooth scroll behavior
+    // تأكد من تطبيق scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
-    
-    // Add scroll animation observer
+
+    // Animation observer (اختياري)
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -40,7 +26,6 @@ function App() {
       });
     }, observerOptions);
 
-    // Observe all sections
     const sections = document.querySelectorAll('section');
     sections.forEach((section) => observer.observe(section));
 
@@ -48,16 +33,16 @@ function App() {
   }, []);
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'dark bg-gray-900' : 'bg-white'} transition-colors duration-300`}>
-      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+    <div className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
+      <Header />
       <main>
-        <HeroSection darkMode={darkMode} />
-        <MaterialShowcase darkMode={darkMode} />
-        <ProjectsGallery darkMode={darkMode} />
-        <Services darkMode={darkMode} />
-        <ContactSection darkMode={darkMode} />
+        <HeroSection />
+        <MaterialShowcase />
+        <ProjectsGallery />
+        <Services />
+        <ContactSection />
       </main>
-      <Footer darkMode={darkMode} />
+      <Footer />
     </div>
   );
 }
