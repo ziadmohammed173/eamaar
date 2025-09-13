@@ -18,19 +18,15 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
   ];
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      darkMode 
-        ? 'bg-gray-900/95 backdrop-blur-md border-b border-gray-800' 
-        : 'bg-white/95 backdrop-blur-md border-b border-gray-200'
-    }`}>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 bg-white border-b border-black`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <div className={`text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent`}>
+            <div className="text-2xl font-bold text-black">
               إعمار الكويتية
             </div>
-            <div className={`ml-2 text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            <div className="ml-2 text-sm text-black opacity-70">
               EMAR KUWAIT
             </div>
           </div>
@@ -41,9 +37,10 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
               <a
                 key={item.name}
                 href={item.href}
-                className={`font-medium transition-colors duration-200 hover:text-cyan-400 ${
-                  darkMode ? 'text-gray-300' : 'text-gray-700'
-                }`}
+                className={`
+                  font-medium transition-colors duration-200
+                  text-black hover:text-white hover:bg-black px-2 py-1 rounded
+                `}
               >
                 {item.name}
               </a>
@@ -55,11 +52,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
             {/* Dark mode toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className={`p-2 rounded-full transition-all duration-200 ${
-                darkMode 
-                  ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700' 
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
+              className="p-2 rounded-full transition-all duration-200 bg-white text-black border border-black hover:bg-black hover:text-white"
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
@@ -67,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
             {/* Call button */}
             <a
               href="tel:+96566303444"
-              className="hidden sm:inline-flex bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-6 py-2 rounded-full font-medium hover:shadow-lg hover:shadow-cyan-400/25 transition-all duration-300 transform hover:scale-105"
+              className="hidden sm:inline-flex bg-black text-white px-6 py-2 rounded-full font-medium hover:bg-white hover:text-black hover:border hover:border-black transition-all duration-300 transform hover:scale-105"
               dir="ltr"
             >
               اتصل بنا
@@ -76,9 +69,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`md:hidden p-2 rounded-md ${
-                darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
-              }`}
+              className="md:hidden p-2 rounded-md text-black hover:bg-black hover:text-white"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -87,14 +78,12 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className={`md:hidden py-4 ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
+          <div className="md:hidden py-4 bg-white border-t border-black">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className={`block px-4 py-3 font-medium transition-colors duration-200 hover:text-cyan-400 ${
-                  darkMode ? 'text-gray-300' : 'text-gray-700'
-                }`}
+                className="block px-4 py-3 font-medium text-black hover:text-white hover:bg-black rounded transition-colors duration-200"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
@@ -102,7 +91,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
             ))}
             <a
               href="tel:+96566303444"
-              className="block mx-4 mt-4 bg-gradient-to-r from-cyan-400 to-blue-500 text-white text-center px-6 py-3 rounded-full font-medium"
+              className="block mx-4 mt-4 bg-black text-white text-center px-6 py-3 rounded-full font-medium hover:bg-white hover:text-black hover:border hover:border-black transition-all duration-200"
               dir="ltr"
               onClick={() => setMobileMenuOpen(false)}
             >
