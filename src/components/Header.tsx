@@ -4,10 +4,9 @@ import { Menu, Moon, Sun, X } from 'lucide-react';
 const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
-  // dark mode controlled via html class 'dark'
+  // تفعيل الوضع الليلي عبر كلاس html
   const toggleDarkMode = () => {
     document.documentElement.classList.toggle('dark');
-    // Optional: persist in localStorage
     if (document.documentElement.classList.contains('dark')) {
       localStorage.setItem('theme', 'dark');
     } else {
