@@ -81,21 +81,17 @@ const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ darkMode }) => {
   return (
     <section
       id="projects"
-      className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'} transition-colors duration-300`}
+      className="py-20 bg-white transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${
-            darkMode ? 'text-white' : 'text-gray-900'
-          }`}>
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">
+            <span className="text-black">
               مشاريعنا المنجزة
             </span>
           </h2>
-          <p className={`text-xl max-w-3xl mx-auto ${
-            darkMode ? 'text-gray-300' : 'text-gray-600'
-          }`}>
+          <p className="text-xl max-w-3xl mx-auto text-black opacity-70">
             استعرض مجموعة من أبرز مشاريعنا المنجزة بنجاح باستخدام أرقى المواد
           </p>
         </div>
@@ -106,12 +102,10 @@ const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ darkMode }) => {
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center ${
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center border border-black ${
                 selectedCategory === category.id
-                  ? 'bg-gradient-to-r from-cyan-400 to-blue-500 text-white shadow-lg'
-                  : darkMode
-                    ? 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
-                    : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md'
+                  ? 'bg-black text-white shadow-lg'
+                  : 'bg-white text-black hover:bg-black hover:text-white'
               }`}
             >
               <Filter className="w-4 h-4 ml-2" />
@@ -125,11 +119,7 @@ const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ darkMode }) => {
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              className={`group cursor-pointer overflow-hidden rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 ${
-                darkMode 
-                  ? 'bg-gray-800 shadow-2xl hover:shadow-cyan-400/20' 
-                  : 'bg-white shadow-lg hover:shadow-2xl'
-              }`}
+              className="group cursor-pointer overflow-hidden rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-white border border-black"
               style={{
                 animationDelay: `${index * 0.1}s`
               }}
@@ -145,26 +135,22 @@ const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ darkMode }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 
                 {/* Year Badge */}
-                <div className="absolute top-4 right-4 bg-cyan-400 text-black px-3 py-1 rounded-full font-bold text-sm">
+                <div className="absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full font-bold text-sm">
                   {project.year}
                 </div>
 
                 {/* View Icon */}
-                <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-md p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  <ExternalLink className="w-5 h-5 text-white" />
+                <div className="absolute bottom-4 left-4 bg-white/60 backdrop-blur-md p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <ExternalLink className="w-5 h-5 text-black" />
                 </div>
               </div>
 
               {/* Content */}
               <div className="p-6">
-                <h3 className={`text-xl font-bold mb-2 ${
-                  darkMode ? 'text-white' : 'text-gray-900'
-                }`}>
+                <h3 className="text-xl font-bold mb-2 text-black">
                   {project.title}
                 </h3>
-                <p className={`text-sm leading-relaxed mb-4 ${
-                  darkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}>
+                <p className="text-sm leading-relaxed mb-4 text-black opacity-70">
                   {project.description}
                 </p>
 
@@ -173,17 +159,13 @@ const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ darkMode }) => {
                   {project.materials.slice(0, 2).map((material, idx) => (
                     <span
                       key={idx}
-                      className={`text-xs px-3 py-1 rounded-full ${
-                        darkMode 
-                          ? 'bg-gray-700 text-gray-300' 
-                          : 'bg-gray-100 text-gray-600'
-                      }`}
+                      className="text-xs px-3 py-1 rounded-full bg-white border border-black text-black"
                     >
                       {material}
                     </span>
                   ))}
                   {project.materials.length > 2 && (
-                    <span className="text-xs px-3 py-1 rounded-full bg-cyan-100 text-cyan-700">
+                    <span className="text-xs px-3 py-1 rounded-full bg-black text-white border border-black">
                       +{project.materials.length - 2}
                     </span>
                   )}
@@ -196,13 +178,11 @@ const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ darkMode }) => {
         {/* Lightbox Modal */}
         {selectedProject && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-            <div className={`relative max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl ${
-              darkMode ? 'bg-gray-800' : 'bg-white'
-            }`}>
+            <div className="relative max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl bg-white border border-black">
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 left-4 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                className="absolute top-4 left-4 z-10 bg-black/70 text-white p-2 rounded-full hover:bg-black transition-colors"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -219,37 +199,27 @@ const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ darkMode }) => {
               {/* Content */}
               <div className="p-8">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className={`text-3xl font-bold ${
-                    darkMode ? 'text-white' : 'text-gray-900'
-                  }`}>
+                  <h3 className="text-3xl font-bold text-black">
                     {selectedProject.title}
                   </h3>
-                  <span className="bg-cyan-400 text-black px-3 py-1 rounded-full font-bold">
+                  <span className="bg-black text-white px-3 py-1 rounded-full font-bold">
                     {selectedProject.year}
                   </span>
                 </div>
 
-                <p className={`text-lg leading-relaxed mb-6 ${
-                  darkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}>
+                <p className="text-lg leading-relaxed mb-6 text-black opacity-70">
                   {selectedProject.description}
                 </p>
 
                 <div className="mb-6">
-                  <h4 className={`text-xl font-bold mb-3 ${
-                    darkMode ? 'text-white' : 'text-gray-900'
-                  }`}>
+                  <h4 className="text-xl font-bold mb-3 text-black">
                     المواد المستخدمة:
                   </h4>
                   <div className="flex flex-wrap gap-3">
                     {selectedProject.materials.map((material: string, idx: number) => (
                       <span
                         key={idx}
-                        className={`px-4 py-2 rounded-lg ${
-                          darkMode 
-                            ? 'bg-gray-700 text-gray-300' 
-                            : 'bg-gray-100 text-gray-700'
-                        }`}
+                        className="px-4 py-2 rounded-lg bg-white border border-black text-black"
                       >
                         {material}
                       </span>
@@ -259,7 +229,7 @@ const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ darkMode }) => {
 
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg transition-all duration-300"
+                  className="w-full bg-black text-white px-6 py-3 rounded-lg font-bold border border-black hover:bg-white hover:text-black transition-all duration-300"
                 >
                   إغلاق
                 </button>
