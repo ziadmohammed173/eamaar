@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class', // << هذا السطر مهم جداً!!
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
@@ -9,16 +10,16 @@ export default {
         white: '#fff',
         // تعريف ألوان مخصصة
         primary: {
-          DEFAULT: '#000',   // أسود لكل شيء أساسي (زر، عنوان...)
+          DEFAULT: '#000',
         },
         secondary: {
-          DEFAULT: '#fff',   // أبيض لكل شيء ثانوي (خلفية، نص...)
+          DEFAULT: '#fff',
         },
         background: {
-          DEFAULT: '#fff',   // الخلفية الرئيسية بيضاء
+          DEFAULT: '#fff',
         },
         foreground: {
-          DEFAULT: '#000',   // النص الافتراضي أسود
+          DEFAULT: '#000',
         },
       },
     },
