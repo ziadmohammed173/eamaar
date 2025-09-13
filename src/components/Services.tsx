@@ -68,21 +68,17 @@ const Services: React.FC<ServicesProps> = ({ darkMode }) => {
   return (
     <section
       id="services"
-      className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-white'} transition-colors duration-300`}
+      className="py-20 bg-white transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Services Section */}
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${
-            darkMode ? 'text-white' : 'text-gray-900'
-          }`}>
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">
+            <span className="text-black">
               خدماتنا المتميزة
             </span>
           </h2>
-          <p className={`text-xl max-w-3xl mx-auto ${
-            darkMode ? 'text-gray-300' : 'text-gray-600'
-          }`}>
+          <p className="text-xl max-w-3xl mx-auto text-black opacity-70">
             نقدم خدمة متكاملة من التصميم إلى التنفيذ بأعلى معايير الجودة
           </p>
         </div>
@@ -91,31 +87,23 @@ const Services: React.FC<ServicesProps> = ({ darkMode }) => {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group p-8 rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 ${
-                darkMode 
-                  ? 'bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 hover:border-cyan-400/50' 
-                  : 'bg-gray-50 hover:bg-white hover:shadow-xl border border-gray-100'
-              }`}
+              className={`group p-8 rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-white hover:bg-black border border-black`}
               style={{
                 animationDelay: `${index * 0.1}s`
               }}
             >
               {/* Icon */}
-              <div className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white p-4 rounded-2xl mb-6 inline-flex group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-black text-white p-4 rounded-2xl mb-6 inline-flex group-hover:scale-110 transition-transform duration-300">
                 {service.icon}
               </div>
 
               {/* Title */}
-              <h3 className={`text-xl font-bold mb-4 ${
-                darkMode ? 'text-white' : 'text-gray-900'
-              }`}>
+              <h3 className="text-xl font-bold mb-4 text-black group-hover:text-white transition-colors duration-200">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className={`text-sm leading-relaxed mb-6 ${
-                darkMode ? 'text-gray-300' : 'text-gray-600'
-              }`}>
+              <p className="text-sm leading-relaxed mb-6 text-black opacity-70 group-hover:text-white transition-colors duration-200">
                 {service.description}
               </p>
 
@@ -124,11 +112,9 @@ const Services: React.FC<ServicesProps> = ({ darkMode }) => {
                 {service.features.map((feature, idx) => (
                   <li
                     key={idx}
-                    className={`text-sm flex items-center ${
-                      darkMode ? 'text-gray-400' : 'text-gray-500'
-                    }`}
+                    className="text-sm flex items-center text-black opacity-70 group-hover:text-white transition-colors duration-200"
                   >
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full ml-3"></div>
+                    <div className="w-2 h-2 bg-black rounded-full ml-3"></div>
                     {feature}
                   </li>
                 ))}
@@ -138,23 +124,15 @@ const Services: React.FC<ServicesProps> = ({ darkMode }) => {
         </div>
 
         {/* Why Choose Us Section */}
-        <div className={`rounded-3xl p-12 ${
-          darkMode 
-            ? 'bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700' 
-            : 'bg-gradient-to-br from-gray-50 to-white shadow-2xl'
-        }`}>
+        <div className="rounded-3xl p-12 bg-white border border-black">
           <div className="text-center mb-12">
-            <h3 className={`text-3xl md:text-4xl font-bold mb-6 ${
-              darkMode ? 'text-white' : 'text-gray-900'
-            }`}>
+            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-black">
               لماذا تختار
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mr-3">
+              <span className="text-black mr-3">
                 إعمار الكويتية؟
               </span>
             </h3>
-            <p className={`text-lg ${
-              darkMode ? 'text-gray-300' : 'text-gray-600'
-            }`}>
+            <p className="text-lg text-black opacity-70">
               نحن الخيار الأمثل للباحثين عن التميز والجودة
             </p>
           </div>
@@ -163,23 +141,15 @@ const Services: React.FC<ServicesProps> = ({ darkMode }) => {
             {whyChooseUs.map((item, index) => (
               <div
                 key={index}
-                className={`text-center p-6 rounded-2xl transition-all duration-300 hover:transform hover:scale-105 ${
-                  darkMode 
-                    ? 'bg-gray-800/50 hover:bg-gray-700/50' 
-                    : 'bg-white/50 hover:bg-white hover:shadow-lg'
-                }`}
+                className="text-center p-6 rounded-2xl transition-all duration-300 bg-white hover:bg-black hover:text-white border border-black"
               >
-                <div className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white p-4 rounded-2xl mb-4 inline-flex">
+                <div className="bg-black text-white p-4 rounded-2xl mb-4 inline-flex">
                   {item.icon}
                 </div>
-                <h4 className={`text-lg font-bold mb-3 ${
-                  darkMode ? 'text-white' : 'text-gray-900'
-                }`}>
+                <h4 className="text-lg font-bold mb-3 text-black group-hover:text-white transition-colors duration-200">
                   {item.title}
                 </h4>
-                <p className={`text-sm ${
-                  darkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}>
+                <p className="text-sm text-black opacity-70 group-hover:text-white transition-colors duration-200">
                   {item.description}
                 </p>
               </div>
@@ -196,7 +166,7 @@ const Services: React.FC<ServicesProps> = ({ darkMode }) => {
                 contactSection.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="inline-flex items-center bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-cyan-400/25 transition-all duration-300 transform hover:scale-105"
+            className="inline-flex items-center bg-black text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-white hover:text-black hover:border hover:border-black transition-all duration-300 transform hover:scale-105"
           >
             احصل على استشارة مجانية الآن
           </button>
